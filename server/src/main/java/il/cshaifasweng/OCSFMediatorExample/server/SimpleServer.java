@@ -49,7 +49,7 @@ public class SimpleServer extends AbstractServer {
                 message.setMessage("Hello World!");
                 client.sendToClient(message);
             } else if (request.startsWith("send Submitters IDs")) {
-                message.setMessage("308571447, 308571447");
+                message.setMessage("308571447, 308571333");
                 client.sendToClient(message);
             } else if (request.startsWith("send Submitters")) {
                 message.setMessage("Ohad, Ohad");
@@ -62,8 +62,8 @@ public class SimpleServer extends AbstractServer {
             } else if (request.startsWith("add")) {
                 String num1 = request.substring(4, 5);
                 String num2 = request.substring(6);
-                int n1 = Integer.valueOf(num1);
-                int n2 = Integer.valueOf(num2);
+                int n1 = Integer.parseInt(num1);
+                int n2 = Integer.parseInt(num2);
                 int ans = n1 + n2;
                 String outcome = Integer.toString(ans);
                 message.setMessage(outcome);
