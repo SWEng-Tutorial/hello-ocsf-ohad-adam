@@ -49,10 +49,10 @@ public class SimpleServer extends AbstractServer {
                 message.setMessage("Hello World!");
                 client.sendToClient(message);
             } else if (request.startsWith("send Submitters IDs")) {
-                message.setMessage("308571447, 308571333");
+                message.setMessage("308571447, 206130635");
                 client.sendToClient(message);
             } else if (request.startsWith("send Submitters")) {
-                message.setMessage("Ohad, Ohad");
+                message.setMessage("Ohad, Adam");
                 client.sendToClient(message);
             } else if (request.equals("what day it is?")) {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
@@ -60,7 +60,7 @@ public class SimpleServer extends AbstractServer {
                 message.setMessage(dtf.format(today));
                 client.sendToClient(message);
             } else if (request.startsWith("add")) {
-                String num1 = request.substring(4, 5);
+                String num1 = request.substring(4, 5); //here problem need split**********************
                 String num2 = request.substring(6);
                 int n1 = Integer.parseInt(num1);
                 int n2 = Integer.parseInt(num2);
