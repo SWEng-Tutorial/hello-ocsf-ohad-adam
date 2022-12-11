@@ -11,7 +11,11 @@ import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 
 public class SimpleServer extends AbstractServer {
-    private static ArrayList<SubscribedClient> SubscribersList = new ArrayList<>();
+    private static ArrayList<SubscribedClient> SubscribersList;
+
+    static {
+        SubscribersList = new ArrayList<>();
+    }
 
     public SimpleServer(int port) {
         super(port);
@@ -60,13 +64,9 @@ public class SimpleServer extends AbstractServer {
                 message.setMessage(dtf.format(today));
                 client.sendToClient(message);
             } else if (request.startsWith("add")) {
-                String num1 = request.substring(4, 5); //here problem need split**********************
-                String num2 = request.substring(6);
-                int n1 = Integer.parseInt(num1);
-                int n2 = Integer.parseInt(num2);
-                int ans = n1 + n2;
-                String outcome = Integer.toString(ans);
-                message.setMessage(outcome);
+                String NUMBERS_ADD = request.substring(4);
+                String[] Numbers = NUMBERS_ADD.split("[+]");
+                message.setMessage((Integer.parseInt(Numbers[0])+Integer.parseInt(Numbers[1]))+"");
                 client.sendToClient(message);
             } else {
                 message.setMessage(request);
